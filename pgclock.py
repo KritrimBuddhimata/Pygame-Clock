@@ -1,3 +1,6 @@
+#Clock Example in pygame
+#Modules used
+
 import os, sys, pygame
 from pygame.locals import *
 import datetime
@@ -31,13 +34,18 @@ class item:
         self.newrect.top = axis[1]-(self.newrect.h/2)
         screen.blit(self.newimg,(self.newrect.left, self.newrect.top))
 
+#setup screen size and background image
 
 size = width, height = 200, 244
 screen = pygame.display.set_mode(size)
 pygame.init()
 
+#load clock face as background        
 bg = item("clock-face.jpg",0,0,0)
 bg.setaxis((bg.width/2,95))
 
+#load and place clock hands
+#the hand images rotate around their own central axis because
+#almost one half of the image is set to transparent
 longhand = item("clockhand-long.bmp",-1,90,23)
 shorthand = item("clockhand-short.bmp",-1,90,40)
