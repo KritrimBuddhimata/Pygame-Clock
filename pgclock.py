@@ -64,24 +64,31 @@ while 1:
     #redraw the background to clear the screen
     bg.draw()
 
+    #Gets the time
     dt=str(datetime.datetime.today())
     hr = float(dt[11:13])
     min = float(dt[14:16])
     sec = float(dt[17:19])
     time = dt[11:19]
 
+    #Gets the clock hands angles
     second = -360.0/60*sec +1
     minute = -360.0/60*min +1
     hour = hr % 12
     hour1 = -360.0/12*hour +1
+
+    #get rotation offset of hour based on minutes
     offset = 360.0/12/60*min
     hour = hour1-offset
+    #draw the clock hands
     shorthand.drawrot(bg.axis,hour)
     longhand.drawrot(bg.axis,minute)
+    #Set the font - Create an offset white shadow behind black
     fontimg = font.render(time,1,white)
     screen.blit(fontimg, (47,198))
     fontimg = font.render(time,1,black)
     screen.blit(fontimg, (45,196))
 
     pygame.display.update() 
+    #Does it every half a second
     pygame.time.delay(500)
