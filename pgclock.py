@@ -49,6 +49,8 @@ bg.setaxis((bg.width/2,95))
 #almost one half of the image is set to transparent
 longhand = item("clockhand-long.bmp",-1,90,23)
 shorthand = item("clockhand-short.bmp",-1,90,40)
+secondhand = item("secondhand.bmp",-1,90,23)
+
 
 #Assign Font
 black = 0,0,0
@@ -83,6 +85,8 @@ while 1:
     #draw the clock hands
     shorthand.drawrot(bg.axis,hour)
     longhand.drawrot(bg.axis,minute)
+    secondhand.drawrot(bg.axis,second)
+
     #Set the font - Create an offset white shadow behind black
     fontimg = font.render(time,1,white)
     screen.blit(fontimg, (47,198))
