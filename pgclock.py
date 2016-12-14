@@ -49,3 +49,17 @@ bg.setaxis((bg.width/2,95))
 #almost one half of the image is set to transparent
 longhand = item("clockhand-long.bmp",-1,90,23)
 shorthand = item("clockhand-short.bmp",-1,90,40)
+
+#Assign Font
+black = 0,0,0
+white = 255,255,255
+font = pygame.font.Font(None, 40)          
+
+while 1:
+
+    for event in pygame.event.get():
+        if event.type == QUIT:
+           sys.exit(0)
+
+    #redraw the background to clear the screen
+    bg.draw()
